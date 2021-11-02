@@ -3,7 +3,7 @@ global class accountupdate implements Database.Batchable<sObject>,schedulable{
     list<Account> abb = new list<Account>();
     global String setDays = system.now().adddays(14).format('ss mm HH dd MM ? yyyy');
     global String EOL_Life = 'EOL_Life';
-    global String EOL_Life1 = 'EOL_Life';
+    global String EOL_Life1 = 'EOL_Life1';
 
 
     global Database.QueryLocator start(Database.BatchableContext BC){
