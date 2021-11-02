@@ -1,0 +1,5 @@
+<aura:component >
+    <aura:handler name="cmpevt" event="c:DemocomponentEvent" action="{!c.myAction}" />
+    <c:ChildComponent1 />
+    <c:ChildComponent2/>
+</aura:component>

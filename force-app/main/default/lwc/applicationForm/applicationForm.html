@@ -1,0 +1,135 @@
+<template>
+    <template if:false={isSuccess}>
+    <div class="slds-p-around_medium">
+        <lightning-progress-indicator type="path" current-step={selectedStep}>
+            <lightning-progress-step label="Personal And Current Educational Detail" onstepfocus={selectStep1} value="Step1">
+            </lightning-progress-step>
+            <lightning-progress-step label="Course Detail (Applying)" onstepfocus={selectStep2} value="Step2">
+            </lightning-progress-step>           
+        </lightning-progress-indicator>
+    </div>
+
+    <template if:false={isSelectStep2}>
+    <div class="slds-grid">
+
+            <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+                <Label>FirstName</Label>
+            <lightning-input type="text" name="input1" value={FirstName} onchange={handleValues} required=true></lightning-input>
+        </div>
+            <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+                <Label>MiddleName</Label>
+            <lightning-input type="text" name="input2" value={MiddleName} onchange={handleValues}></lightning-input>
+        </div>
+        <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+            <Label>LastName</Label>
+            <lightning-input type="text" name="input3" value={LastName} onchange={handleValues} required=true></lightning-input>
+        </div>
+    </div>
+
+    <div class="slds-grid">
+        <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+            <Label>Primary Contact</Label>
+        <lightning-input type="number" name="input4" value={PrimaryContact} onchange={handleValues}></lightning-input>
+    </div>
+        <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+            <Label>Address Line 1</Label>
+        <lightning-input type="text" name="input5" value={AddressLine1} onchange={handleValues}></lightning-input>
+    </div>
+    <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+        <Label>Address Line 2</Label>
+        <lightning-input type="text" name="input6" value={AddressLine2} onchange={handleValues}></lightning-input>
+    </div>
+</div>  
+
+<div class="slds-grid">
+    <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+        <Label>Previous Exam Detail</Label>
+    <lightning-input type="text" name="input7" value={ExamDetail} onchange={handleValues} required=true></lightning-input>
+</div>
+    
+    <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+        <Label>Result</Label>
+        <lightning-combobox
+        id="pickList3"
+        name="input8"
+        label={label}
+        value={Result}
+        variant={variant}
+        placeholder="Select"
+        options={options2}
+        required=true
+        onchange={handleValues}>
+    </lightning-combobox>
+</div>
+<div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+    <Label>Percentage</Label>
+    <lightning-input type="text" name="input9" value={Percentage} onchange={handleValues} required=true></lightning-input>
+</div>
+</div>
+
+
+
+</template>
+
+<template if:true={isSelectStep2}>
+
+<div class="slds-grid">
+    <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+        <Label>Course</Label>
+        <lightning-combobox
+        id="pickList"
+        name="input10"
+        label={label}
+        value={Course}
+        variant={variant}
+        placeholder="Select"
+        options={options}
+        required=true
+        onchange={handleValues}>
+    </lightning-combobox>
+</div>
+    <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+        <Label>Year</Label>
+        <lightning-combobox
+        id="pickList1"
+        name="input11"
+        label={label}
+        value={Year}
+        variant={variant}
+        placeholder="Select"
+        options={options1}
+        required=true
+        onchange={handleValues}>
+    </lightning-combobox>
+</div>
+</div>  
+
+<div class="slds-grid">
+    <div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+        <Label>Additional Detail</Label>
+    <lightning-input type="text" name="input12" value={AddDetail} onchange={handleValues}></lightning-input>
+</div>
+<div class="slds-p-around_medium slds-text-body_regular lgc-bg slds-col">
+    <Label>Blood Group</Label>
+    <lightning-input type="text" name="input13" value={Blood} onchange={handleValues} required=true></lightning-input>
+</div>
+</div>
+</template>
+
+
+<div class="slds-m-vertical_medium slds-align_absolute-center">
+    <lightning-button  variant="destructive-text" label="Previous" class="slds-m-left_x-small" onclick={handlePrev}></lightning-button>
+    <template if:false={isSelectStep2}>
+        <lightning-button variant="destructive" class="slds-m-left_x-small" label="Next" onclick={handleNext}></lightning-button>
+    </template>
+    <template if:true={isSelectStep2}>
+        <lightning-button variant="destructive" class="slds-m-left_x-small" label="Submit" onclick={handleFinish}></lightning-button>
+    </template>
+</div>
+    </template>
+<template if:true={isSuccess}>
+<div class="slds-text-align_center slds-text-color_success slds-text-heading_large">Congratulations</div><br>
+<div class="slds-text-align_center slds-text-color_success slds-text-heading_large">Your Form is Submitted Successfully, will get back to you !</div>
+</template>
+
+</template>

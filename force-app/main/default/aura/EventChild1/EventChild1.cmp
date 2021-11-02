@@ -1,0 +1,4 @@
+<aura:component >
+    <aura:registerEvent name="Demochild1" type="c.Cmpevent" />
+    <Lightning:button label="Button Display" onclick ="{!c.myAction}"/>
+</aura:component>

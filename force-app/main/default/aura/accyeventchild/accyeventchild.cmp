@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:registerEvent name="accyev" type="c:accyevent"/>
+    <lightning:button label="click button" onclick="{!c.handleclick}"/>
+</aura:component>

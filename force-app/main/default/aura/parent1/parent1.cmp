@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:handler event="c:testevent13" action="{!c.handle1}"/>
+    <c:child1/>
+</aura:component>

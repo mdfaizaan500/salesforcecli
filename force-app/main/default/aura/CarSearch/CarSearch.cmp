@@ -1,0 +1,27 @@
+<aura:component controller="CarTypeDetail" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    <aura:attribute name="SearchButton" type="string" default="Search Button"/>   
+    <aura:attribute name="NewButton" type="boolean" default="false"/> 
+    <aura:attribute name="CarTypes" type="CarType__c[]" /> 
+    <aura:registerEvent name="searchFormSubmit" type="c:SearchFormSubmitEvent"/>              
+    <lightning:layout horizontalAlign="center">
+        
+    <lightning:layoutItem padding="around-medium">
+        <lightning:select name='selectItem' aura:id="cartTypeList" label='AllTypes' variant="label-hidden" value="" onchange="{!c.newvalueselected}">
+            <option value="" text="All types" />
+				<aura:iteration items="{!v.CarTypes}" var="Cartypes">
+       				 <option value="{!Cartypes.Id}" text="{!Cartypes.Name}" />
+    			</aura:iteration>      
+        </lightning:select>   
+    </lightning:layoutItem>
+        
+    <lightning:layoutItem padding="around-medium">
+        <lightning:button variant="brand" label="{!v.SearchButton}" onclick="{!c.onSearchClick}"/>
+       
+    		  <lightning:button variant="neutral" label="New" onclick ="{!c.createRecord}"/> 
+    	 
+        
+    </lightning:layoutItem>
+
+    </lightning:layout>  
+</aura:component>

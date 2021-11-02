@@ -1,0 +1,39 @@
+<aura:component>
+    <aura:attribute name="openModal" type="boolean" default="false"/>
+      <lightning:helptext iconName="utility:info" class="popover" onclick="{!c.handleOpenModal}"/>
+        <aura:if isTrue="{!v.openModal}">
+            <!--Modal Box Start-->
+            <div role="dialog" class="slds-modal slds-fade-in-open ">
+                <div class="slds-modal__container" >
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.handleCloseModal}">
+                            X
+                        </button>
+                    </div>
+                     
+                    <!--Modal Box Header-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                   <table class="slds-table slds-table--bordered slds-table--striped slds-table_cell-buffer slds-table_col-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col"><span class="slds-truncate">Authorization Name</span></th>
+                            <th scope="col"><span class="slds-truncate">Description</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>"Create Cgdfgjdfjgkdfgdfase"</td>
+                                <td>"Use to creatgdfjgkdfjgkdfjkgjdfkjgde a case"</td>
+                            </tr>
+                         	<tr>
+                                <td>"Create Cgdfgjdfjgkgfdgdfgdfase"</td>
+                                <td>"Use to creatgdfjggfgkdfjgkdfjkgjdfkjgde a case"</td>
+                            </tr>
+                    </tbody>
+                </table>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>            
+        </aura:if>
+</aura:component>

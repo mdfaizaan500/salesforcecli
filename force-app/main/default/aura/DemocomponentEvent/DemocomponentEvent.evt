@@ -1,0 +1,4 @@
+<!--DemocomponentEvent-->
+<aura:event type="COMPONENT" description="Event template" >
+    <aura:attribute name= "Demoname" type="String" />
+</aura:event>

@@ -1,0 +1,13 @@
+<aura:component controller="CarTypeDetail">
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="showpicklist" type="list"/>
+   <div class="slds-form-element">     	
+          <lightning:select name="select item" label="Available Authorization" value="check">
+            <aura:iteration var="option" items="{!v.showpicklist }">
+            <option value="{! option.value }">{!option.label }</option>
+            </aura:iteration>
+          </lightning:select>
+          
+          
+      </div>      
+</aura:component>

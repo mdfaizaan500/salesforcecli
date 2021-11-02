@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:registerEvent name="newEvent" type="c:testevent13"/>
+    <lightning:button label="click button" onclick="{!c.handleclick}"/>
+</aura:component>

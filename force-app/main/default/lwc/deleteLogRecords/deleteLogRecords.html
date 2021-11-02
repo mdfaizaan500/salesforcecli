@@ -1,0 +1,87 @@
+<template>  
+    <lightning-card>
+    <template if:true={label}>
+        <div class="slds-align_absolute-center slds-text-heading_small">{label}</div>
+    </template><br/>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-m-left_large">
+            <div class="slds-combobox_container">
+                <p>Log Level</p>
+                <div class="slds-combobox combowidth slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" aria-expanded="true" aria-haspopup="listbox" role="combobox">
+                    <!-- Search Input -->
+                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                        <lightning-input disabled={disabled} class="inputBox" placeholder="Select an Option" onblur={blurEvent} onclick={showOptions} onkeyup={filterOptions} value={searchString} auto-complete="off" variant="label-hidden" id="combobox-id-1" ></lightning-input>
+                        <lightning-icon class="slds-input__icon" icon-name="utility:down" size="x-small" alternative-text="search"></lightning-icon>
+                    </div>
+                    <!-- Dropdown List -->
+                    <template if:true={showDropdown}>
+                        <div id="listbox-id-1" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
+                            <ul class="slds-listbox slds-listbox_vertical recordListBox" role="presentation">
+                                <template if:false={message} >
+                                    <template for:each={optionData} for:item="option">
+                                        <template if:true={option.isVisible}>
+                                            <li key={option.value} data-id={option.value} onmousedown={selectItem} class="slds-listbox__item eachItem">
+                                                <template if:true={option.selected}>
+                                                    <lightning-icon icon-name="utility:check" size="x-small" alternative-text="icon" ></lightning-icon>
+                                                </template>
+                                                <span class="slds-media slds-listbox__option_entity verticalAlign slds-truncate">{option.label}</span>
+                                            </li>
+                                        </template>
+                                    </template>
+                                </template>
+                                <template if:true={message} >
+                                    <li class="slds-listbox__item">
+                                        <span class="slds-media slds-listbox__option_entity verticalAlign slds-truncate">{message}</span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div> 
+        <div class="slds-col slds-m-left_large boxwidth">
+            <p>Start Date</p>
+            <lightning-input type="datetime" name="startdate" class="startdate" label="" value={start_date} onchange={handleDateChange} required ></lightning-input>
+        </div>
+        <div class="slds-col slds-m-right_large">
+            <p>End Date</p>
+            <lightning-input type="datetime" name="enddate" class="enddate" label=""  value={end_date} onchange={handleDateChange} required></lightning-input>
+        </div>           
+    </div>
+</br>
+    <div class="slds-button-group-row slds-align_absolute-center">
+    <template if:true={showStart}>
+        <div class="slds-button-group-item">
+            <lightning-button class="slds-m-left_x-small"  variant="brand" label="Start" title="Delete" onclick={deleteLogRecordsHandle}></lightning-button>
+        </div>
+    </template>
+        <template if:false={showStart}>
+        <div class="slds-button-group-item">
+            <lightning-button class="slds-m-left_x-small" disabled variant="brand" label="Start" title="Delete" onclick={deleteLogRecordsHandle}></lightning-button>
+        </div>
+    </template>
+        <div class="slds-button-group-item">
+            <lightning-button class="slds-m-left_x-small" variant="brand" label="Cancel" title="Cancel" onclick={navigateToHomePage}></lightning-button>
+        </div>
+    </div>
+</lightning-card>
+<lightning-card>
+<template if:true={deleteLogList}>
+    <div class="slds-align_absolute-center slds-text-heading_small">History Of Last 30 Days Deleted Logs</div>
+    <div class="slds-form-element__control slds-m-around_medium slds-scrollable" style="height:15rem;width:auto">
+    <lightning-datatable
+                key-field="id"
+                data={deleteLogList}
+                show-row-number-column
+                hide-checkbox-column
+                sorted-by={sortBy}
+                sorted-direction={sortDirection}
+                default-sort-direction={defaultSortDirection}
+                onsort={doSorting}
+                columns={columns}>
+    </lightning-datatable>
+</div>
+</template>
+</lightning-card>
+</template>

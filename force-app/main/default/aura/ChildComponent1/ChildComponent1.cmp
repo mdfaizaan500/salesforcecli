@@ -1,0 +1,4 @@
+<aura:component >
+    <aura:registerEvent name="cmpevt" type="c:DemocomponentEvent" />
+    <lightning:button label="click" onclick="{!c.myAction}" />
+</aura:component>
