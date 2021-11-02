@@ -1,7 +1,7 @@
 public class AccountLWCController {
      @AuraEnabled(cacheable=true)
     public static List<Account> getAccountList() {
-        return [SELECT Id, Name FROM Account];
+        return [SELECT Id, Name FROM Account limit 1];
     }
     @AuraEnabled
     public static List<Contact> getContacts(String accountId){
