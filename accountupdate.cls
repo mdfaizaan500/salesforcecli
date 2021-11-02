@@ -14,6 +14,7 @@ global class accountupdate implements Database.Batchable<sObject>,schedulable{
     global void execute(Database.BatchableContext BC,List<Account> acc){
     
         for(Account act:acc){
+            
          act.Revenue__c = 2000;
          abb.add(act);
         }
