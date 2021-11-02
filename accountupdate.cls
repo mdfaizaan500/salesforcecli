@@ -7,6 +7,8 @@ global class accountupdate implements Database.Batchable<sObject>,schedulable{
     global String EOL_Life2 = 'EOL_Life1';
     global String EOL_Life2 = 'EOL_Life2 ';
     global String EOL_Life3 = 'EOL_Life22 ';
+    global String EOL_Life3 = 'EOL_Li4fe22 ';
+
 
 
 
