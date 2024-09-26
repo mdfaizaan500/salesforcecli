@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:registerEvent name="chlEvent" type="c.DiaEvent"/>
+    <lightning:button label="click Button" onclick="{!c.handleclick}"/>
+</aura:component>

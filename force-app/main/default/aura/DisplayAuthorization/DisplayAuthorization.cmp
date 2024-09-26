@@ -1,0 +1,42 @@
+<aura:component controller="CarTypeDetail" >
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+<aura:attribute name="ListOfOption" type="list" />
+    <div class="slds-form-element">
+		<div class="slds-form-element__control">
+			<div class="slds-combobox_container">
+				<div aura:id="trigger" class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" role="combobox">
+					<!-- Trigger element -->
+					<div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+						<input aura:id="input" class="slds-input slds-combobox__input" role="textbox" type="text" readonly="true" placeholder="Available options" onclick="{!c.openMenu}"/>
+						<span class="slds-icon slds-input__icon slds-input__icon_right">
+							<lightning:icon iconName="utility:down" size="x-small"/>
+						</span>
+					</div>
+    
+    
+    
+    
+    <div aura:id="menu" role="listbox" tabindex="-1" onblur="{!c.closeMenu}">
+  <ul class="slds-listbox slds-listbox_vertical slds-dropdown" role="presentation">
+      <div class="options-container">
+	<aura:iteration items="{!v.ListOfOption}" var="option">
+		<li role="presentation" class="slds-listbox__item" >
+			<div class="{!'slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-media_center ' + (option.access ? 'slds-is-selected' : '')}" role="option">
+				<span class="slds-media__figure">
+					<lightning:icon iconName="utility:check" size="x-small" class="slds-listbox__icon-selected"/>
+				</span>
+				<span class="slds-media__body">
+					<span class="slds-truncate" title="{!option.name}">{!option.name}</span>
+				</span>
+			</div>
+		</li>
+	</aura:iteration>
+</div>
+      	</ul>
+    </div>
+                        </div>
+    </div>
+    </div>
+    </div>
+
+</aura:component>

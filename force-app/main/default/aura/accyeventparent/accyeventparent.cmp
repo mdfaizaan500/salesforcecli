@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:handler event="c:accyevent" action="{!c.clickhanlde}"/>
+    <c:accyeventchild/>
+</aura:component>

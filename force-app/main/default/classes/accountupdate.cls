@@ -3,12 +3,6 @@ global class accountupdate implements Database.Batchable<sObject>,schedulable{
     list<Account> abb = new list<Account>();
     global String setDays = system.now().adddays(14).format('ss mm HH dd MM ? yyyy');
     global String EOL_Life = 'EOL_Life';
-    global String EOL_Life1 = 'EOL_Life1';
-    global String EOL_Life2 = 'EOL_Life1';
-    global String EOL_Life2 = 'EOL_Life2 ';
-    global String EOL_Life3 = 'EOL_Life2 ';
-
-
 
 
     global Database.QueryLocator start(Database.BatchableContext BC){
@@ -19,7 +13,6 @@ global class accountupdate implements Database.Batchable<sObject>,schedulable{
     global void execute(Database.BatchableContext BC,List<Account> acc){
     
         for(Account act:acc){
-
          act.Revenue__c = 2000;
          abb.add(act);
         }
